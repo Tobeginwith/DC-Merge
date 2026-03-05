@@ -46,10 +46,6 @@ def build_classification_head(model, tokenizer, classnames, template, device):
 
 
 if __name__ == '__main__':
-    # Uncomment one of these depending on model you want.
-    # vit_path = "openai/clip-vit-large-patch14"
-    # vit_path = "openai/clip-vit-base-patch32"
-    vit_path = 'openai/clip-vit-base-patch16'
     cache_dir = ""                              # Path to HF cache directory
     classification_heads_dir = ""               # dir to save classification heads
     config_name = '16vision_train'               # 8 Vision dataset config name
