@@ -3,4 +3,6 @@ k: 100
 use_ties: false
 ties_agg: "sum"
 
+common_space_fraction: 0.8
+
 full_name: ${method.name}_k=${method.k}
