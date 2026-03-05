@@ -1,0 +1,10 @@
+{
+    "stanford_cars": 99.77,
+    "dtd": 70.05,
+    "eurosat": 98.59,
+    "gtsrb": 97.20,
+    "mnist": 99.53,
+    "resisc45": 95.70,
+    "sun397": 79.60,
+    "svhn": 97.72
+}

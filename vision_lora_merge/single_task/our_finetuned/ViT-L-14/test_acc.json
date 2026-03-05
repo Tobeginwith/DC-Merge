@@ -1,0 +1,18 @@
+{
+    "stanford_cars": 89.18,
+    "dtd": 77.93,
+    "eurosat": 98.44,
+    "gtsrb": 99.11,
+    "mnist": 99.275,
+    "resisc45": 96.95,
+    "sun397": 80.49,
+    "svhn": 97.53,
+    "oxfordpets": 95.71,
+    "cifar100": 92.16, 
+    "stl10": 99.55, 
+    "flowers102": 96.46,
+    "sst2": 83.87,
+    "fashionmnist": 95.45,
+    "fer2013": 72.49,
+    "cifar10": 99.13
+}
