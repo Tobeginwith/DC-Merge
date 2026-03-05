@@ -127,7 +127,9 @@ The checkpoints we used for Table 1 (LoRA merging) are provided [in this link](h
 
 The checkpoints we used for Table 2 (FFT merging) are provided [in this link](https://drive.google.com/drive/folders/1UEM1Thcz1c7dc1nji1i5uTN53Kf6G3-e).
 
-For FFT merging, the pretrained ViT models are automatically downloaded when running the code.
+For FFT merging, the pretrained ViT models are automatically downloaded when running the code. For LoRA merging, please download ViT-B-32, ViT-B-16 and ViT-L-14 from HuggingFace to your local disk before running the code. Remember to specify the local path in `MODEL_DIR` and `CACHE_DIR` in scripts under the [configs](vision_lora_merge/configs) directory.
+
+### Main Results
 
 ## Merging Vision-Language Models
 
@@ -138,3 +140,11 @@ For FFT merging, the pretrained ViT models are automatically downloaded when run
 ## Citation
 If you find this repository useful for your work, please consider citing our paper:
 
+```bibtex
+@inproceedings{zhang2026dcmerge,
+  title={DC-Merge: Improving Model Merging with Directional Consistency},
+  author={Han-Chen Zhang and Zi-Hao Zhou and Mao-Lin Luo and Shimin Di and Min-Ling Zhang and Tong Wei},
+  booktitle={CVPR},
+  year={2026}
+}
+```
