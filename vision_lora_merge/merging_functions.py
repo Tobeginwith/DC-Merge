@@ -251,7 +251,7 @@ def get_redundant_task_vector(vectors, iter_num=300):
     return merging_vector.data.detach().cpu()
 
 
-def wudi(deltas_dict, iter_num=300):
+def wudi_merge(deltas_dict, iter_num=300):
     merged_task_vector = {}
 
     for k, mat_list in tqdm(deltas_dict.items(), desc='WUDI Processing...'):

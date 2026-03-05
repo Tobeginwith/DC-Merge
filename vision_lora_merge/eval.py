@@ -11,7 +11,7 @@ from tqdm.auto import tqdm
 import json
 
 from utils import *
-from merging_functions import TA, TSVM, iso_cts, dc_merge
+from merging_functions import TA, TSVM, iso_cts, dc_merge, wudi_merge
 from ft_handlers import get_ft_parameters_delta, aggregate_deltas, apply_merge
 
 def get_parser():
@@ -44,7 +44,7 @@ def get_parser():
         "--method",
         type=str,
         required=True,
-        choices=["dc_merge", "tsvm", "ta", "iso_cts"],
+        choices=["dc_merge", "tsvm", "ta", "iso_cts", "wudi"],
         help="Merging method to use.",
     )
     parser.add_argument(
@@ -64,6 +64,12 @@ def get_parser():
         type=float,
         default=5.0,
         help='The hyperparameter in linear smoothing (5.0 by default).',
+    )
+    parser.add_argument(
+        "--iter_num",
+        type=int,
+        default=300,
+        help='The iteration rounds in WUDI (300 by default).',
     )
     parser.add_argument(
         "--k_frac",
@@ -134,6 +140,8 @@ def main():
             merged_deltas = dc_merge(agg_deltas, smoothing_strategy=args.smoothing, rho=args.rho)
         elif args.method == 'tsvm':
             merged_deltas = TSVM(agg_deltas)
+        elif args.method == 'wudi':
+            merged_deltas = wudi_merge(agg_deltas, iter_num=args.iter_num)
         elif args.method == 'ta':
             merged_deltas = TA(agg_deltas)
         elif args.method == 'iso_cts':
