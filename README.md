@@ -127,7 +127,7 @@ The checkpoints we used for Table 1 (LoRA merging) are provided [in this link](h
 
 The checkpoints we used for Table 2 (FFT merging) are provided [in this link](https://drive.google.com/drive/folders/1fzHAN3v0qDJuHiD3EkQ76K0sc1cCO_S-). Remember to specify the `model_location` with `/your_model_path/fft_checkpoints` in [config.yaml](vision_fft_merge/config/config.yaml) before running the code.
 
-For FFT merging, the pretrained ViT models are automatically downloaded when running the code. For LoRA merging, please download ViT-B-32, ViT-B-16 and ViT-L-14 from HuggingFace to your local disk before running the code. Remember to specify the local path in `MODEL_DIR` and `CACHE_DIR` in scripts under the [configs](vision_lora_merge/configs) directory before running the code.
+For FFT merging, the pretrained ViT models are automatically downloaded when running the code. For LoRA merging, please download `ViT-B-32`, `ViT-B-16` and `ViT-L-14` from HuggingFace to your local disk before running the code. Remember to specify the local path in `MODEL_DIR` and `CACHE_DIR` in scripts under the [configs](vision_lora_merge/configs) directory before running the code.
 
 ```bash
 huggingface-cli download openai/clip-vit-base-patch32 --local-dir /your_model_path/clip-vit-base-patch32
@@ -136,8 +136,9 @@ huggingface-cli download openai/clip-vit-large-patch14 --local-dir /your_model_p
 ```
 
 ### Main Results
-To reproduce the main results, please run:
 #### LoRA merging
+:pushpin: **We report the better result of the two smoothing strategies (Averaging and Linear Smoothing) in Table 1.** Specifically, averaging is more effective on `ViT-B-16` and `ViT-L-14`, while linear smoothing (with $\rho=5.0$ as default) demonstrates better performance on `ViT-B-32`. Note that averaging can be viewed as a special case of linear smoothing with $\rho=1.0$.
+To reproduce the results in Table 1, please run:
 ```bash
 # run DC-Merge on ViT-B-32 8-task benchmark (Linear Smoothing, $\rho$ 5.0 as default)
 python eval.py --config vitB32_r16_8task --method dc_merge --smoothing linear
@@ -162,8 +163,12 @@ python eval.py --config vitB32_r16_8task --method tsvm
 python eval.py --config vitB32_r16_8task --method wudi --iter_num 300
 python eval.py --config vitB32_r16_8task --method iso_cts --k_frac 0.8
 
+# run DC-Merge on ViT-B-32 8-task benchmark using KnOTS checkpoints (Linear Smoothing, $\rho$ 5.0 as default)
+python eval.py --config vitB32_r16_8task --method dc_merge --smoothing linear --use_official_knots
 ```
 #### FFT merging
+:pushpin: **We do not include further smoothing in FFT merging as stated and analyzed in Appendix E.4.**
+To reproduce the results in Table 2, please run:
 ```bash
 # run DC-Merge on ViT-B-32 8-task benchmark
 python main.py model=ViT-B-32 method="DC_Merge" num_tasks=8
@@ -195,6 +200,14 @@ conda env create -f environment_vlm.yml
 conda activate dcmerge_vlm
 cd ./vlm_merge
 ```
+
+### Hardware
+
+The experiments can be reproduced using 4 × NVIDIA A6000 GPU with 48GB memory.
+
+### Checkpoints
+
+The checkpoints we used for Table 3 are provided [in this link](https://huggingface.co/collections/AuroraZengfh/mm-mergebench).
 
 ## Acknowledgements
 
