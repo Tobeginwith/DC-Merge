@@ -136,6 +136,55 @@ huggingface-cli download openai/clip-vit-large-patch14 --local-dir /your_model_p
 ```
 
 ### Main Results
+To reproduce the main results, please run:
+#### LoRA merging
+```bash
+# run DC-Merge on ViT-B-32 8-task benchmark (Linear Smoothing, $\rho$ 5.0 as default)
+python eval.py --config vitB32_r16_8task --method dc_merge --smoothing linear
+
+# run DC-Merge on ViT-B-32 12-task benchmark (Linear Smoothing, $\rho$ 5.0 as default)
+python eval.py --config vitB32_r16_12task --method dc_merge --smoothing linear
+
+# run DC-Merge on ViT-B-32 16-task benchmark (Linear Smoothing, $\rho$ 5.0 as default)
+python eval.py --config vitB32_r16_16task --method dc_merge --smoothing linear
+
+# run DC-Merge on ViT-B-32 8-task benchmark (Linear Smoothing, $\rho$ 3.0)
+python eval.py --config vitB32_r16_8task --method dc_merge --smoothing linear --rho 3.0
+
+# run DC-Merge on ViT-B-16 8-task benchmark (Averaging)
+python eval.py --config vitB16_r16_8task --method dc_merge
+
+# run DC-Merge on ViT-L-14 8-task benchmark (Averaging)
+python eval.py --config vitL14_r16_8task --method dc_merge
+
+# run other strong baselines (TSV-M, WUDI, Iso-CTS)
+python eval.py --config vitB32_r16_8task --method tsvm
+python eval.py --config vitB32_r16_8task --method wudi --iter_num 300
+python eval.py --config vitB32_r16_8task --method iso_cts --k_frac 0.8
+
+```
+#### FFT merging
+```bash
+# run DC-Merge on ViT-B-32 8-task benchmark
+python main.py model=ViT-B-32 method="DC_Merge" num_tasks=8
+
+# run DC-Merge on ViT-B-32 14-task benchmark
+python main.py model=ViT-B-32 method="DC_Merge" num_tasks=14
+
+# run DC-Merge on ViT-B-32 20-task benchmark
+python main.py model=ViT-B-32 method="DC_Merge" num_tasks=20
+
+# run DC-Merge on ViT-B-16 8-task benchmark
+python main.py model=ViT-B-16 method="DC_Merge" num_tasks=8
+
+# run DC-Merge on ViT-L-14 8-task benchmark
+python main.py model=ViT-L-14 method="DC_Merge" num_tasks=8
+
+# run other strong baselines (TSV-M, WUDI, Iso-CTS)
+python main.py model=ViT-B-32 method="TSVM" num_tasks=8
+python main.py model=ViT-B-32 method="WUDI" num_tasks=8 method.iter_num=300
+python main.py model=ViT-B-32 method="Iso_CTS" num_tasks=8 method.common_space_fraction=0.8
+```
 
 ## Merging Vision-Language Models
 
