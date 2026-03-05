@@ -1,6 +1,6 @@
 import os
 
-VIT_ARCH = 'ViT-L-14-CLIP'  # Model Architecture
+VIT_ARCH = 'ViT-L-14'  # Model Architecture
 CACHE_DIR = ''              # Where to cache HF pretrained checkpoints
 MODEL_DIR = ''              # Model Directory
 HEAD_DIR = ''               # CLIP Head Directory

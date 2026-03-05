@@ -1,18 +1,18 @@
 import os
 
-# VIT_ARCH = 'ViT-L-14-CLIP'    # Model Architecture (Uncomment for ViT-L-14-CLIP)
-# VIT_ARCH = 'ViT-B-32-CLIP'      # Model Architecture (Uncomment for ViT-B-32-CLIP)
-VIT_ARCH = 'ViT-B-16-CLIP'      # Model Architecture (Uncomment for ViT-B-16-CLIP)
+# VIT_ARCH = 'ViT-L-14'    # Model Architecture (Uncomment for ViT-L-14-CLIP)
+# VIT_ARCH = 'ViT-B-32'      # Model Architecture (Uncomment for ViT-B-32-CLIP)
+VIT_ARCH = 'ViT-B-16'      # Model Architecture (Uncomment for ViT-B-16-CLIP)
 MODEL_DIR = ''                  # Model Directory
 CACHE_DIR = ''                  # Where to cache HF pretrained checkpoints
 HEAD_DIR = ''                   # CLIP Head Directory
 
-if VIT_ARCH == 'ViT-L-14-CLIP':
-    BASE_TYPE = "openai/clip-vit-large-patch14"
-elif VIT_ARCH == 'ViT-B-32-CLIP':
-    BASE_TYPE = "openai/clip-vit-base-patch32"
-elif VIT_ARCH == 'ViT-B-16-CLIP':
-    BASE_TYPE = "openai/clip-vit-base-patch16"
+if VIT_ARCH == 'ViT-L-14':
+    BASE_TYPE = "ViT-L-14"
+elif VIT_ARCH == 'ViT-B-32':
+    BASE_TYPE = "ViT-B-32"
+elif VIT_ARCH == 'ViT-B-16':
+    BASE_TYPE = "ViT-B-16"
 
 config = {
     'dataset': [
