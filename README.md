@@ -264,7 +264,7 @@ huggingface-cli download openai/clip-vit-large-patch14-336 --local-dir /your_mod
 ```
 
 ### Main Results
-run DC-Merge to obtain the merged model:
+Run DC-Merge to obtain the merged model:
 ```bash
 sh scripts/merge/merge_lora.sh
 ```
