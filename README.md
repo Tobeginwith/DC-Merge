@@ -3,7 +3,7 @@ This is the official implementation of our CVPR 2026 paper **DC-Merge: Improving
 
 ## Merging Vision Models
 ### Environment
-
+Create an environment and install dependencies:
 ```bash
 conda env create -f environment_vision.yml
 conda activate dcmerge_vision
@@ -15,7 +15,7 @@ cd ./vision_lora_merge    # LoRA merging
 The experiments can be reproduced using a single NVIDIA 4090 GPU with 24GB of memory.
 
 ### Datasets
-The datasets are structured as follows. For FFT merging, update the `data_location` in [config.yaml](vision_fft_merge/config/config.yaml) before running the code. For LoRA merging, update the `BASE_DIR` in [configs.py](vision_lora_merge/dataset/configs.py) before running the code.
+The datasets are structured as follows. For FFT merging, specify the `data_location` with `/your_dataset_path` in [config.yaml](vision_fft_merge/config/config.yaml) before running the code. For LoRA merging, specify the `BASE_DIR` with `/your_dataset_path` in [configs.py](vision_lora_merge/dataset/configs.py) before running the code.
 
 ```sh
 /your_dataset_path
@@ -123,16 +123,29 @@ The datasets are structured as follows. For FFT merging, update the `data_locati
 ```
 
 ### Checkpoints
-The checkpoints we used for Table 1 (LoRA merging) are provided [in this link](https://drive.google.com/drive/folders/13-X9wjnHc4zSkQuZqcfEtVnKVsZItYYP?usp=drive_link).
+The checkpoints we used for Table 1 (LoRA merging) are provided [in this link](https://drive.google.com/drive/folders/13-X9wjnHc4zSkQuZqcfEtVnKVsZItYYP?usp=drive_link). Remember to specify the `FT_DIR` with `/your_model_path/lora_checkpoints` in scripts under the [configs](vision_lora_merge/configs) directory before running the code.
 
-The checkpoints we used for Table 2 (FFT merging) are provided [in this link](https://drive.google.com/drive/folders/1UEM1Thcz1c7dc1nji1i5uTN53Kf6G3-e).
+The checkpoints we used for Table 2 (FFT merging) are provided [in this link](https://drive.google.com/drive/folders/1fzHAN3v0qDJuHiD3EkQ76K0sc1cCO_S-). Remember to specify the `model_location` with `/your_model_path/fft_checkpoints` in [config.yaml](vision_fft_merge/config/config.yaml) before running the code.
 
-For FFT merging, the pretrained ViT models are automatically downloaded when running the code. For LoRA merging, please download ViT-B-32, ViT-B-16 and ViT-L-14 from HuggingFace to your local disk before running the code. Remember to specify the local path in `MODEL_DIR` and `CACHE_DIR` in scripts under the [configs](vision_lora_merge/configs) directory.
+For FFT merging, the pretrained ViT models are automatically downloaded when running the code. For LoRA merging, please download ViT-B-32, ViT-B-16 and ViT-L-14 from HuggingFace to your local disk before running the code. Remember to specify the local path in `MODEL_DIR` and `CACHE_DIR` in scripts under the [configs](vision_lora_merge/configs) directory before running the code.
+
+```bash
+huggingface-cli download openai/clip-vit-base-patch32 --local-dir /your_model_path/clip-vit-base-patch32
+huggingface-cli download openai/clip-vit-base-patch16 --local-dir /your_model_path/clip-vit-base-patch16
+huggingface-cli download openai/clip-vit-large-patch14 --local-dir /your_model_path/clip-vit-large-patch14
+```
 
 ### Main Results
 
 ## Merging Vision-Language Models
 
+### Environment
+Create an environment and install dependencies:
+```bash
+conda env create -f environment_vlm.yml
+conda activate dcmerge_vlm
+cd ./vlm_merge
+```
 
 ## Acknowledgements
 
