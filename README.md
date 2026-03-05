@@ -20,100 +20,100 @@ The datasets are structured as follows. For FFT merging, specify the `data_locat
 ```sh
 /your_dataset_path
  ├─ cifar-10-batches-py
- │  ├─ data_batch_1
- │  ├─ data_batch_2
- │  └─ ...
+    ├─ data_batch_1
+    ├─ data_batch_2
+    └─ ...
  ├─ resisc45
- │  ├─ airplane
- │  ├─ airport
- │  ├─ ...
- │  ├─ wetland
- │  ├─ resisc45-train.txt
- │  ├─ resisc45-val.txt
- │  └─ resisc45-test.txt
+    ├─ airplane
+    ├─ airport
+    ├─ ...
+    ├─ wetland
+    ├─ resisc45-train.txt
+    ├─ resisc45-val.txt
+    └─ resisc45-test.txt
  ├─ pcam
- │  ├─ camelyonpatch_level_2_split_train_x.h5
- │  ├─ camelyonpatch_level_2_split_train_y.h5
- │  ├─ camelyonpatch_level_2_split_test_x.h5
- │  └─ camelyonpatch_level_2_split_test_y.h5
+    ├─ camelyonpatch_level_2_split_train_x.h5
+    ├─ camelyonpatch_level_2_split_train_y.h5
+    ├─ camelyonpatch_level_2_split_test_x.h5
+    └─ camelyonpatch_level_2_split_test_y.h5
  ├─ rendered-sst2
- │  ├─ train
+    ├─ train
       ├─ negative
       └─ positive
- │  ├─ valid
- │  └─ test
+    ├─ valid
+    └─ test
  ├─ stl10-binary
- │  ├─ train_X.bin
- │  ├─ train_y.bin
- │  ├─ test_X.bin
- │  ├─ test_y.bin
- │  ├─ class_names.txt
- │  ├─ fold_indices.txt
- │  └─ unlabeled_X.bin
+    ├─ train_X.bin
+    ├─ train_y.bin
+    ├─ test_X.bin
+    ├─ test_y.bin
+    ├─ class_names.txt
+    ├─ fold_indices.txt
+    └─ unlabeled_X.bin
  ├─ cifar-100-python
- │  ├─ meta
- │  ├─ test
- │  └─ train
+    ├─ meta
+    ├─ test
+    └─ train
  ├─ dtd
- │  ├─ train
+    ├─ train
        ├─ banded
        ├─ blotchy
        └─ ...
- │  ├─ val
- │  └─ test
+    ├─ val
+    └─ test
  ├─ gtsrb
- │  ├─ GTSRB
+    ├─ GTSRB
        ├─ Training
        └─ Final_test
- │  └─ GT-final_test.csv
+    └─ GT-final_test.csv
  ├─ eurosat
- │  ├─ train
- │  ├─ val
- │  └─ test
+    ├─ train
+    ├─ val
+    └─ test
  ├─ flowers-102
- │  ├─ jpg
- │  ├─ 102flowers.tgz
- │  ├─ imagelabels.mat
- │  └─ setid.mat
+    ├─ jpg
+    ├─ 102flowers.tgz
+    ├─ imagelabels.mat
+    └─ setid.mat
  ├─ food-101
- │  ├─ images
- │  └─ meta
+    ├─ images
+    └─ meta
  ├─ fer2013_dataset
- │  ├─ train
+    ├─ train
        ├─ data-00000-of-00001.arrow
        └─ state.json
- │  └─ test
+    └─ test
  ├─ MNIST/raw
- │  ├─ t10k-images-idx3-ubyte
- │  ├─ t10k-labels-idx1-ubyte
- │  ├─ train-images-idx3-ubyte
- │  └─ train-labels-idx1-ubyte
+    ├─ t10k-images-idx3-ubyte
+    ├─ t10k-labels-idx1-ubyte
+    ├─ train-images-idx3-ubyte
+    └─ train-labels-idx1-ubyte
  ├─ FashionMNIST/raw
- │  ├─ t10k-images-idx3-ubyte
- │  ├─ t10k-labels-idx1-ubyte
- │  ├─ train-images-idx3-ubyte
- │  └─ train-labels-idx1-ubyte
+    ├─ t10k-images-idx3-ubyte
+    ├─ t10k-labels-idx1-ubyte
+    ├─ train-images-idx3-ubyte
+    └─ train-labels-idx1-ubyte
  ├─ KMNIST/raw
- │  ├─ t10k-images-idx3-ubyte
- │  ├─ t10k-labels-idx1-ubyte
- │  ├─ train-images-idx3-ubyte
- │  └─ train-labels-idx1-ubyte
+    ├─ t10k-images-idx3-ubyte
+    ├─ t10k-labels-idx1-ubyte
+    ├─ train-images-idx3-ubyte
+    └─ train-labels-idx1-ubyte
  ├─ EMNIST/raw
- │  ├─ emnist-digits-train-labels-idx1-ubyte
- │  ├─ emnist-digits-test-labels-idx1-ubyte
- │  ├─ emnist-digits-train-images-idx3-ubyte
- │  └─ emnist-digits-test-images-idx3-ubyte
+    ├─ emnist-digits-train-labels-idx1-ubyte
+    ├─ emnist-digits-test-labels-idx1-ubyte
+    ├─ emnist-digits-train-images-idx3-ubyte
+    └─ emnist-digits-test-images-idx3-ubyte
  ├─ oxford-iiit-pet
- │  ├─ annotations
- │  └─ images
+    ├─ annotations
+    └─ images
  ├─ cars
- │  ├─ cars_test
- │  ├─ cars_train
- │  ├─ devkit
- │  └─ cars_test_annos_withlabels.mat
+    ├─ cars_test
+    ├─ cars_train
+    ├─ devkit
+    └─ cars_test_annos_withlabels.mat
  ├─ svhn
- │  ├─ train_32x32.mat
- │  └─ test_32x32.mat
+    ├─ train_32x32.mat
+    └─ test_32x32.mat
  └─ sun397
     ├─ train
        ├─ a_abbey
@@ -205,9 +205,58 @@ cd ./vlm_merge
 
 The experiments can be reproduced using 4 × NVIDIA A6000 GPU with 48GB memory.
 
+### Datasets
+
+The datasets are structured as follows. Remember to specify the `--image-folder` with `/your_dataset_path` in scripts under the [eval_merge](vlm_merge/scripts/eval_merge) directory before running the code.
+
+```bash
+/your_dataset_path
+ ├─ COCO2014
+     ├─ train2014
+     └─ val2014
+ ├─ flickr30k
+     ├─ train
+     └─ val
+ ├─ IconQA/iconqa_data
+     ├─ iconqa
+       ├─ train
+         ├─ choose_img
+         ├─ choose_txt
+         └─ fill_in_blank
+       ├─ val
+       └─ test
+     ├─ pid_splits.json
+     ├─ pid2skills.json
+     ├─ skills.json
+     ├─ problems.json
+     └─ problem_ids.json
+ ├─ ImageNet-R
+     ├─ test
+     ├─ train
+ ├─ ImageNet_withlabel
+     ├─ train
+     └─ val
+ ├─ OCR-VQA/images
+     ├─ 000195850X.jpg
+     └─ ...
+ ├─ ScienceQA
+     ├─ images
+     ├─ pid_splits.json
+     └─ problems.json
+ ├─ Screen2words/test_data
+     ├─ 0.png
+     └─ ...
+ ├─ TabMWP/tables
+     ├─ 1.png
+     └─ ...
+ └─ VizWiz
+    ├─ train
+    └─ val
+```
+
 ### Checkpoints
 
-The checkpoints we used for Table 3 are provided [in this link](https://huggingface.co/collections/AuroraZengfh/mm-mergebench). Please download the [LLaVA-1.5-7B](https://arxiv.org/pdf/2310.03744) model to your local directory.
+The checkpoints we used for Table 3 are provided [in this link](https://huggingface.co/collections/AuroraZengfh/mm-mergebench). Please download the [LLaVA-1.5-7B](https://arxiv.org/pdf/2310.03744) model to your local directory. Remember to specify the `--model-base` with `/your_model_path/llava-v1.5-7b` in scripts under the [merge](vlm_merge/scripts/merge) and [eval_merge](vlm_merge/scripts/eval_merge) directory before running the code.
 
 ```bash
 huggingface-cli download liuhaotian/llava-v1.5-7b --local-dir /your_model_path/llava-v1.5-7b
@@ -215,13 +264,20 @@ huggingface-cli download openai/clip-vit-large-patch14-336 --local-dir /your_mod
 ```
 
 ### Main Results
+run DC-Merge to obtain the merged model:
+```bash
+sh scripts/merge/merge_lora.sh
+```
 Evaluate the merged model on 8 seen tasks and 4 unseen tasks:
 ```bash
 sh scripts/eval_merge/Eval_merge.sh
 ```
 
 ## Acknowledgements
-
+We sincerely thank the contributors of the following repositories for code reference: 
+- [Task Singular Vectors](https://github.com/AntoAndGar/task_singular_vectors)
+- [KnOTS](https://github.com/gstoica27/KnOTS)
+- [RobustMerge](https://github.com/AuroraZengfh/RobustMerge)
 
 ## Citation
 If you find this repository useful for your work, please consider citing our paper:
