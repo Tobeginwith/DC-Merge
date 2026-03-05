@@ -123,9 +123,9 @@ The datasets are structured as follows. For FFT merging, specify the `data_locat
 ```
 
 ### Checkpoints
-The checkpoints we used for Table 1 (LoRA merging) are provided [in this link](https://drive.google.com/drive/folders/13-X9wjnHc4zSkQuZqcfEtVnKVsZItYYP?usp=drive_link). Remember to specify the `FT_DIR` with `/your_model_path/lora_checkpoints` in scripts under the [configs](vision_lora_merge/configs) directory before running the code.
+The checkpoints we used for Table 1 (LoRA merging) are provided [in this link](https://drive.google.com/drive/folders/13-X9wjnHc4zSkQuZqcfEtVnKVsZItYYP?usp=drive_link). The classification heads we used for Table 1 (LoRA merging) are provided [in this link](https://drive.google.com/drive/folders/1l3A1ncH9xqJD8HLLtc2FyuiC2_EP6xH7?usp=drive_link). Remember to specify the `FT_DIR` with `/your_model_path/lora_checkpoints` and `HEAD_DIR` with `/your_model_path/lora_heads` in scripts under the [configs](vision_lora_merge/configs) directory before running the code.
 
-The checkpoints we used for Table 2 (FFT merging) are provided [in this link](https://drive.google.com/drive/folders/1fzHAN3v0qDJuHiD3EkQ76K0sc1cCO_S-). Remember to specify the `model_location` with `/your_model_path/fft_checkpoints` in [config.yaml](vision_fft_merge/config/config.yaml) before running the code.
+The checkpoints and classification heads we used for Table 2 (FFT merging) are provided [in this link](https://drive.google.com/drive/folders/1fzHAN3v0qDJuHiD3EkQ76K0sc1cCO_S-). Remember to specify the `model_location` with `/your_model_path/fft_checkpoints` in [config.yaml](vision_fft_merge/config/config.yaml) before running the code.
 
 For FFT merging, the pretrained ViT models are automatically downloaded when running the code. For LoRA merging, please download `ViT-B-32`, `ViT-B-16` and `ViT-L-14` from HuggingFace to your local disk before running the code. Remember to specify the local path in `MODEL_DIR` and `CACHE_DIR` in scripts under the [configs](vision_lora_merge/configs) directory before running the code.
 
@@ -207,7 +207,18 @@ The experiments can be reproduced using 4 × NVIDIA A6000 GPU with 48GB memory.
 
 ### Checkpoints
 
-The checkpoints we used for Table 3 are provided [in this link](https://huggingface.co/collections/AuroraZengfh/mm-mergebench).
+The checkpoints we used for Table 3 are provided [in this link](https://huggingface.co/collections/AuroraZengfh/mm-mergebench). Please download the [LLaVA-1.5-7B](https://arxiv.org/pdf/2310.03744) model to your local directory.
+
+```bash
+huggingface-cli download liuhaotian/llava-v1.5-7b --local-dir /your_model_path/llava-v1.5-7b
+huggingface-cli download openai/clip-vit-large-patch14-336 --local-dir /your_model_path/clip-vit-large-patch14-336
+```
+
+### Main Results
+Evaluate the merged model on 8 seen tasks and 4 unseen tasks:
+```bash
+sh scripts/eval_merge/Eval_merge.sh
+```
 
 ## Acknowledgements
 
