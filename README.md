@@ -18,15 +18,54 @@ The experiments can be reproduced using a single NVIDIA 4090 GPU with 24GB of me
 The datasets are structured as follows. For FFT merging, update the `data_location` in [config.yaml](vision_fft_merge/config/config.yaml) before running the code. For LoRA merging, update the `BASE_DIR` in [configs.py](vision_lora_merge/dataset/configs.py) before running the code.
 
 ```sh
-/your_dataset_path/MTIL
+/your_dataset_path
+ ├─ cifar-10-batches-py
+ │  ├─ data_batch_1
+ │  ├─ data_batch_2
+ │  └─ ...
+ ├─ resisc45
+ │  ├─ airplane
+ │  ├─ airport
+ │  ├─ ...
+ │  ├─ wetland
+ │  ├─ resisc45-train.txt
+ │  ├─ resisc45-val.txt
+ │  └─ resisc45-test.txt
+ ├─ pcam
+ │  ├─ camelyonpatch_level_2_split_train_x.h5
+ │  ├─ camelyonpatch_level_2_split_train_y.h5
+ │  ├─ camelyonpatch_level_2_split_test_x.h5
+ │  └─ camelyonpatch_level_2_split_test_y.h5
+ ├─ rendered-sst2
+ │  ├─ train
+      ├─ negative
+      └─ positive
+ │  ├─ valid
+ │  └─ test
+ ├─ stl10-binary
+ │  ├─ train_X.bin
+ │  ├─ train_y.bin
+ │  ├─ test_X.bin
+ │  ├─ test_y.bin
+ │  ├─ class_names.txt
+ │  ├─ fold_indices.txt
+ │  └─ unlabeled_X.bin
  ├─ cifar-100-python
  │  ├─ meta
  │  ├─ test
  │  └─ train
  ├─ dtd
  │  ├─ train
+       ├─ banded
+       ├─ blotchy
+       └─ ...
  │  ├─ val
  │  └─ test
+ ├─ gtsrb
+ │  ├─ GTSRB
+       ├─ Training
+       └─ Final_test
+ │  └─ GT-final_test.csv
  ├─ eurosat
  │  ├─ train
  │  ├─ val
@@ -39,6 +78,11 @@ The datasets are structured as follows. For FFT merging, update the `data_locati
  ├─ food-101
  │  ├─ images
  │  └─ meta
+ ├─ fer2013_dataset
+ │  ├─ train
+       ├─ data-00000-of-00001.arrow
+       └─ state.json
+ │  └─ test
  ├─ MNIST/raw
  │  ├─ t10k-images-idx3-ubyte
  │  ├─ t10k-labels-idx1-ubyte
@@ -54,6 +98,11 @@ The datasets are structured as follows. For FFT merging, update the `data_locati
  │  ├─ t10k-labels-idx1-ubyte
  │  ├─ train-images-idx3-ubyte
  │  └─ train-labels-idx1-ubyte
+ ├─ EMNIST/raw
+ │  ├─ emnist-digits-train-labels-idx1-ubyte
+ │  ├─ emnist-digits-test-labels-idx1-ubyte
+ │  ├─ emnist-digits-train-images-idx3-ubyte
+ │  └─ emnist-digits-test-images-idx3-ubyte
  ├─ oxford-iiit-pet
  │  ├─ annotations
  │  └─ images
@@ -62,6 +111,9 @@ The datasets are structured as follows. For FFT merging, update the `data_locati
  │  ├─ cars_train
  │  ├─ devkit
  │  └─ cars_test_annos_withlabels.mat
+ ├─ svhn
+ │  ├─ train_32x32.mat
+ │  └─ test_32x32.mat
  └─ sun397
     ├─ train
        ├─ a_abbey
