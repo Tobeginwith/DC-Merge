@@ -4,7 +4,11 @@ This is the official implementation of our CVPR 2026 paper **DC-Merge: Improving
 We are in the process of preparing the code for release and expect to make it publicly available before **April 2026.**
 
 ## Merging Vision Models
+### Environment
+
+### Checkpoints
 The checkpoints we used for Table 1 are provided [in this link](https://drive.google.com/drive/folders/13-X9wjnHc4zSkQuZqcfEtVnKVsZItYYP?usp=drive_link).
+The checkpoints we used for Table 2 are provided [in this link](https://drive.google.com/drive/folders/1UEM1Thcz1c7dc1nji1i5uTN53Kf6G3-e).
 
 
 ## Merging Vision-Language Models
