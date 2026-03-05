@@ -290,15 +290,13 @@ def create_task_vector(
 
     elif config.method.name == "TSVM":
         print(f"=== Using TSVM ===")
-        # svd_dict = compute_svd_dict(task_vectors, config)
-        # new_merged_tv = sum_svd_dict(svd_dict, config)
         new_merged_tv = compute_and_sum_svd_mem_reduction(task_vectors, config)
     elif config.method.name == "DC_Merge":
         print(f"=== Using DC-Merge ===")
         new_merged_tv = dc_merge(task_vectors, config)
     elif config.method.name == "Iso_CTS":
         print(f"=== Using Iso-CTS ===")
-        new_merged_tv = iso_cts(task_vectors, config)
+        new_merged_tv = iso_cts(task_vectors, config, common_space_fraction=config.method.common_space_fraction)
     elif config.method.name == "WUDI":
         print(f"=== Using WUDI ===")
         new_merged_tv = wudi_merge(task_vectors, config)

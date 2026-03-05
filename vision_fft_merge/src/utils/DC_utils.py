@@ -183,7 +183,7 @@ def wudi_merge(task_vectors, config):
             if (len(task_vector.vector[key].shape) == 2) and ("text_projection" not in key) and is_linear_vectors:
                 vecs = torch.stack(orig_vecs, dim=0)
                 with torch.enable_grad():
-                    new_vector[key] = get_redundant_task_vector(vecs, device)
+                    new_vector[key] = get_redundant_task_vector(vecs, device, config.method.iter_num)
                 
     return new_vector
 

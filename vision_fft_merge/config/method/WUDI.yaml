@@ -3,4 +3,6 @@ k: 100
 use_ties: false
 ties_agg: "sum"
 
+iter_num: 300
+
 full_name: ${method.name}_k=${method.k}
