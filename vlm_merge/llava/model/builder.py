@@ -151,6 +151,18 @@ def ties_small(mat_list):
     return res
 
 
+def delta_to_AB(task_parameters):
+    AB_parameters = {}
+    for base_name, delta in task_parameters.items():
+        u, s, v = torch.svd_lowrank(delta.to(torch.float32), q=128)
+        A_name = base_name.replace('model', 'base_model.model.model').replace('weight', 'lora_A.weight')
+        B_name = base_name.replace('model', 'base_model.model.model').replace('weight', 'lora_B.weight')
+        AB_parameters[B_name] = (u @ torch.diag(s)).to(torch.bfloat16)
+        AB_parameters[A_name] = v.t().to(torch.bfloat16)
+    
+    return OrderedDict(sorted(AB_parameters.items()))
+
+
 def load_merged_model(model_path, model_base, model_name, 
                             load_8bit=False, 
                             load_4bit=False, 
@@ -215,11 +227,14 @@ def load_merged_model(model_path, model_base, model_name,
             model.load_state_dict(non_lora_trainables, strict=False)
             
             print('Loading LoRA weights...')
-            lora_state_dict = torch.load(os.path.join(model_path, 'merged_deltas.pt'), map_location='cpu')
-            pretrained_state_dict = model.state_dict()
-            for k, param in lora_state_dict.items():
-                pretrained_state_dict[k].add_(2.0 * param.to(torch.float16).to(pretrained_state_dict[k].device))
-            
+            from peft import PeftModel, LoraConfig
+            config = LoraConfig.from_pretrained(model_path)
+            config.lora_alpha = 256
+            config.r = 128
+            print('Loading LoRA weights...')
+            model = PeftModel.from_pretrained(model, model_path, config=config)
+            print('Merging LoRA weights...')
+            model = model.merge_and_unload()
             print('Model is loaded...')
         elif model_base is not None:
             # this may be mm projector only
@@ -681,9 +696,10 @@ def load_and_dc_merge_pretrained_model(model_paths, model_base, model_name, save
             agg_deltas = aggregate_deltas(delta_dicts)
             print('Aggregated deltas for all tasks.')
             merged_deltas = dc_merge(agg_deltas, smoothing_strategy=smoothing_strategy, rho=rho)
+            AB_parameters = delta_to_AB(merged_deltas)
                     
             model.config.save_pretrained(save_model_path)
-            torch.save(merged_deltas, os.path.join(save_model_path, 'merged_deltas.pt'))
+            torch.save(AB_parameters, os.path.join(save_model_path, 'adapter_model.bin'))
             print('Finish saving merged model weights.')
 
         elif model_base is not None:
