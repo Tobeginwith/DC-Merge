@@ -268,7 +268,9 @@ Run DC-Merge to obtain the merged model:
 ```bash
 sh scripts/merge/merge_lora.sh
 ```
-Evaluate the merged model on 8 seen tasks and 4 unseen tasks:
+This saves the merged task vectors similar to the manner of saving `peft` LoRA adapters. You can specify the local directory for saving the merged model weights.
+
+Evaluate the merged model on 8 seen tasks and 4 unseen tasks (specify `eval_path` with the directory of merged model):
 ```bash
 sh scripts/eval_merge/Eval_merge.sh
 ```
